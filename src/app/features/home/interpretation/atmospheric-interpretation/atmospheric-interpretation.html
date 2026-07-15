@@ -1,0 +1,35 @@
+@if (snapshot(); as current) {
+  <article class="interpretation" data-cy="atmospheric-interpretation">
+    <p class="eyebrow">Atmospheric situation</p>
+    <h1>{{ current.interpretation.state }}</h1>
+    <p class="explanation">{{ current.interpretation.explanation }}</p>
+    <ul class="drivers" aria-label="Contributing atmospheric drivers">
+      @for (driver of current.interpretation.driverIds; track driver) {
+        <li>{{ formatDriver(driver) }}</li>
+      }
+    </ul>
+    <div class="trust-line">
+      <span
+        >{{ confidenceLabel() }} ·
+        {{ current.interpretation.confidence * 100 | number: '1.0-0' }}%</span
+      >
+      <span>Valid {{ formatTime(current.validAt) }}</span>
+    </div>
+    <details>
+      <summary>Sources and validity</summary>
+      <ul>
+        @for (source of current.provenance; track source.provider + source.validAt) {
+          <li>
+            {{ source.provider }} · {{ source.kind }} · valid {{ formatTime(source.validAt) }}
+          </li>
+        }
+      </ul>
+    </details>
+  </article>
+} @else {
+  <section class="insufficient" role="status">
+    <p class="eyebrow">Atmospheric situation</p>
+    <h1>Insufficient data</h1>
+    <p>An interpretation will appear when a validated atmospheric snapshot is available.</p>
+  </section>
+}

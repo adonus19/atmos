@@ -1,0 +1,13 @@
+@if (snapshot()) {
+  <section class="conditions" aria-labelledby="conditions-heading" data-cy="atmospheric-conditions">
+    <h2 id="conditions-heading">Conditions at selected time</h2>
+    <dl>
+      @for (metric of metrics(); track metric.label) {
+        <div [class.secondary]="metric.secondary">
+          <dt>{{ metric.label }}</dt>
+          <dd>{{ metric.value }}</dd>
+        </div>
+      }
+    </dl>
+  </section>
+}
