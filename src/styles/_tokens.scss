@@ -1,0 +1,81 @@
+:root {
+  color-scheme: dark;
+
+  --atmos-ink-950: #020914;
+  --atmos-ink-900: #061525;
+  --atmos-ink-850: #0a1d31;
+  --atmos-ink-800: #0d263d;
+  --atmos-ink-700: #163a55;
+  --atmos-paper-50: #f5fbff;
+  --atmos-paper-100: #e5f3fa;
+  --atmos-slate-300: #a8c0cf;
+  --atmos-slate-500: #698599;
+  --atmos-cyan-400: #45d9f2;
+  --atmos-cyan-300: #7aeaff;
+  --atmos-blue-500: #3188e8;
+  --atmos-teal-400: #45e0b8;
+  --atmos-violet-400: #a56cf5;
+  --atmos-amber-400: #ffb547;
+  --atmos-orange-500: #f78335;
+  --atmos-red-500: #f0525f;
+  --atmos-green-400: #66e39a;
+  --atmos-unknown: #8a9caa;
+
+  --color-background: var(--atmos-ink-900);
+  --color-background-edge: var(--atmos-ink-950);
+  --color-surface: var(--atmos-ink-800);
+  --color-surface-raised: var(--atmos-ink-850);
+  --color-border: rgb(122 234 255 / 18%);
+  --color-text: var(--atmos-paper-50);
+  --color-text-secondary: var(--atmos-slate-300);
+  --color-action: var(--atmos-cyan-400);
+  --color-action-emphasis: var(--atmos-cyan-300);
+  --color-positive: var(--atmos-green-400);
+  --color-transition: var(--atmos-amber-400);
+  --color-elevated: var(--atmos-orange-500);
+  --color-hazard: var(--atmos-red-500);
+
+  --surface-primary: rgb(6 21 37 / 78%);
+  --surface-secondary: rgb(10 29 49 / 68%);
+  --focus-ring: 0 0 0 3px rgb(69 217 242 / 38%);
+  --ambient-glow: 0 0 28px rgb(69 217 242 / 16%);
+
+  --font-ui: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --radius-control: 0.75rem;
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+  --touch-target: 2.75rem;
+  --page-gutter: var(--space-4);
+  --content-max: 90rem;
+
+  --motion-fast: 160ms;
+  --motion-standard: 280ms;
+  --motion-slow: 480ms;
+  --motion-environment: 900ms;
+  --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --page-gutter: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-standard: 0ms;
+    --motion-slow: 0ms;
+    --motion-environment: 0ms;
+  }
+}

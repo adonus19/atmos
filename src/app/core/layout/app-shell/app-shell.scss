@@ -1,0 +1,31 @@
+:host {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+  background: radial-gradient(
+    circle at 50% 0%,
+    var(--color-surface-raised),
+    var(--color-background) 42%,
+    var(--color-background-edge)
+  );
+}
+main {
+  width: min(100%, var(--content-max));
+  margin-inline: auto;
+  padding: var(--space-6) var(--page-gutter) calc(var(--space-16) + env(safe-area-inset-bottom));
+}
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-action);
+  color: var(--color-background-edge);
+  transform: translateY(-150%);
+  transition: transform var(--motion-fast) var(--ease-ui);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}

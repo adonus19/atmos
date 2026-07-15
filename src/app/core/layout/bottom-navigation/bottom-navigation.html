@@ -1,0 +1,8 @@
+<nav aria-label="Primary navigation">
+  @for (destination of destinations; track destination.path) {
+    <a [routerLink]="destination.path" routerLinkActive="active" ariaCurrentWhenActive="page">
+      <span class="symbol" aria-hidden="true">{{ destination.symbol }}</span>
+      <span>{{ destination.label }}</span>
+    </a>
+  }
+</nav>
