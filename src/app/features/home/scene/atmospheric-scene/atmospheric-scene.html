@@ -1,0 +1,20 @@
+@if (presentation(); as scene) {
+  <figure class="scene" role="img" [attr.aria-label]="scene.summary" data-cy="atmospheric-scene">
+    <app-sky-layer [phase]="scene.solarPhase" />
+    <app-cloud-bands [category]="scene.cloudCategory" />
+    <div class="haze" [style.opacity]="scene.hazeOpacity"></div>
+    <app-wind-field
+      [particleCount]="scene.windParticleCount"
+      [speedMps]="scene.windSpeedMps"
+      [directionDegrees]="scene.windDirectionDegrees"
+    />
+    <app-precipitation-layer [category]="scene.precipitationCategory" />
+    <div class="terrain terrain-back" aria-hidden="true"></div>
+    <div class="terrain terrain-front" aria-hidden="true"></div>
+    <figcaption class="sr-only">{{ scene.summary }}</figcaption>
+  </figure>
+} @else {
+  <div class="scene-unavailable" role="status">
+    Atmospheric scene unavailable until timeline data is loaded.
+  </div>
+}

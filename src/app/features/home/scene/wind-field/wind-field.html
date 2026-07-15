@@ -1,0 +1,9 @@
+<div
+  class="wind"
+  [style.--wind-angle.deg]="directionDegrees()"
+  [style.--wind-duration]="duration()"
+>
+  @for (particle of particles(); track particle) {
+    <span [style.--particle-index]="particle"></span>
+  }
+</div>

@@ -1,0 +1,32 @@
+:host,
+.wind {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.wind {
+  transform: rotate(var(--wind-angle));
+}
+span {
+  position: absolute;
+  width: 12%;
+  height: 1px;
+  inset-inline-start: -18%;
+  inset-block-start: calc(8% + (var(--particle-index) * 5%));
+  background: linear-gradient(to right, transparent, var(--atmos-cyan-300));
+  opacity: 0.5;
+  animation: flow var(--wind-duration) linear infinite;
+  animation-delay: calc(var(--particle-index) * -180ms);
+}
+@keyframes flow {
+  to {
+    transform: translateX(950%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  span {
+    animation: none;
+    inset-inline-start: calc(var(--particle-index) * 5%);
+  }
+}

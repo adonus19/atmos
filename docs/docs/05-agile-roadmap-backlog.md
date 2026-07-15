@@ -154,7 +154,7 @@ Acceptance criteria:
 
 - [x] ATM-101 scenario fixtures
 - [x] ATM-102 selected-time state and scrubber
-- [ ] ATM-103 Home scene engine
+- [x] ATM-103 Home scene engine
 - [ ] ATM-104 synchronized interpretation and conditions
 - [ ] ATM-105 calm-weather Home state
 
@@ -187,6 +187,8 @@ Acceptance criteria:
 - screen reader announces selected time and summary
 
 #### ATM-103 Build Home scene engine
+
+**Completed:** July 15, 2026. The CSS-first scene derives solar phase, cloud category, haze, wind flow, and precipitation exclusively from the selected normalized snapshot. High, medium, and low density tiers are supported, reduced motion stops continuous effects, and the entire scene has a textual equivalent without Canvas.
 
 Acceptance criteria:
 

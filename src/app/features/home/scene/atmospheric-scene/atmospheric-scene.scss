@@ -1,0 +1,57 @@
+:host {
+  display: block;
+}
+.scene,
+.scene-unavailable {
+  position: relative;
+  min-height: clamp(22rem, 58dvh, 38rem);
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  isolation: isolate;
+}
+.haze {
+  position: absolute;
+  z-index: 2;
+  inset: 28% 0 0;
+  background: linear-gradient(to top, var(--atmos-paper-100), transparent);
+  transition: opacity var(--motion-environment) linear;
+  pointer-events: none;
+}
+.terrain {
+  position: absolute;
+  z-index: 3;
+  inset-inline: -8%;
+  inset-block-end: -12%;
+  height: 42%;
+  border-radius: 50% 50% 0 0;
+  background: var(--atmos-ink-800);
+  transform: rotate(-2deg);
+}
+.terrain-back {
+  inset-block-end: 4%;
+  background: var(--atmos-ink-700);
+  opacity: 0.82;
+  transform: rotate(4deg) scale(1.08);
+}
+.terrain-front {
+  background: var(--atmos-ink-950);
+}
+.scene-unavailable {
+  display: grid;
+  place-content: center;
+  padding: var(--space-6);
+  color: var(--color-text-secondary);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

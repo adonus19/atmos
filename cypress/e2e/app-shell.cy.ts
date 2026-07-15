@@ -14,6 +14,9 @@ describe('Atmos app shell', () => {
       .should('have.value', '18')
       .and('have.attr', 'aria-valuetext')
       .and('contain', 'Storms developing');
+    cy.get('[data-cy="atmospheric-scene"]')
+      .should('have.attr', 'aria-label')
+      .and('contain', 'light precipitation');
     cy.get('[data-cy="timeline-play"]').should('have.attr', 'aria-pressed', 'false').click();
     cy.get('[data-cy="timeline-play"]').should('have.attr', 'aria-pressed', 'true');
   });
