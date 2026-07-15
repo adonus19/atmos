@@ -1,0 +1,41 @@
+:host,
+.clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.clouds {
+  opacity: var(--cloud-opacity);
+  transition: opacity var(--motion-environment) linear;
+}
+.clear {
+  --cloud-opacity: 0.08;
+}
+.scattered {
+  --cloud-opacity: 0.34;
+}
+.broken {
+  --cloud-opacity: 0.62;
+}
+.overcast {
+  --cloud-opacity: 0.84;
+}
+span {
+  position: absolute;
+  width: 55%;
+  height: 16%;
+  border-radius: var(--radius-pill);
+  background: var(--atmos-paper-100);
+  filter: blur(var(--space-4));
+}
+span:nth-child(1) {
+  inset: 18% auto auto -8%;
+}
+span:nth-child(2) {
+  inset: 33% -12% auto auto;
+  transform: scale(1.2);
+}
+span:nth-child(3) {
+  inset: 48% auto auto 24%;
+  transform: scale(0.72);
+}

@@ -1,0 +1,35 @@
+:host,
+.sky {
+  position: absolute;
+  inset: 0;
+}
+.sky {
+  background: linear-gradient(to bottom, var(--sky-top), var(--sky-horizon));
+  transition: background var(--motion-environment) linear;
+}
+.dawn {
+  --sky-top: var(--atmos-ink-700);
+  --sky-horizon: var(--atmos-orange-500);
+}
+.day {
+  --sky-top: var(--atmos-blue-500);
+  --sky-horizon: var(--atmos-cyan-300);
+}
+.dusk {
+  --sky-top: var(--atmos-ink-850);
+  --sky-horizon: var(--atmos-orange-500);
+}
+.night {
+  --sky-top: var(--atmos-ink-950);
+  --sky-horizon: var(--atmos-ink-700);
+}
+.light {
+  position: absolute;
+  width: 28%;
+  aspect-ratio: 1;
+  inset: 12% 10% auto auto;
+  border-radius: 50%;
+  background: var(--color-text);
+  filter: blur(var(--space-8));
+  opacity: 0.18;
+}

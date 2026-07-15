@@ -1,0 +1,38 @@
+:host,
+.precipitation {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+span {
+  position: absolute;
+  width: 1px;
+  height: 8%;
+  inset-inline-start: calc(3% + var(--drop-index) * 5%);
+  inset-block-start: calc(-10% + var(--drop-index) * 4%);
+  background: var(--atmos-cyan-300);
+  opacity: 0.55;
+  transform: rotate(12deg);
+  animation: rain 900ms linear infinite;
+  animation-delay: calc(var(--drop-index) * -80ms);
+}
+.light span {
+  opacity: 0.3;
+  animation-duration: 1.3s;
+}
+.heavy span {
+  height: 13%;
+  opacity: 0.75;
+  animation-duration: 650ms;
+}
+@keyframes rain {
+  to {
+    translate: -40% 850%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  span {
+    animation: none;
+  }
+}

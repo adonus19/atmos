@@ -1,0 +1,5 @@
+<div class="precipitation" [class]="category()">
+  @for (drop of drops(); track drop) {
+    <span [style.--drop-index]="drop"></span>
+  }
+</div>
