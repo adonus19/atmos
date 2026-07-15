@@ -153,7 +153,7 @@ Acceptance criteria:
 **Implementation status:**
 
 - [x] ATM-101 scenario fixtures
-- [ ] ATM-102 selected-time state and scrubber
+- [x] ATM-102 selected-time state and scrubber
 - [ ] ATM-103 Home scene engine
 - [ ] ATM-104 synchronized interpretation and conditions
 - [ ] ATM-105 calm-weather Home state
@@ -172,6 +172,8 @@ Acceptance criteria:
 - interpretation expectations stored for tests
 
 #### ATM-102 Build selected-time state and scrubber
+
+**Completed:** July 15, 2026. A shared signal-backed selected-time service drives a native hourly range control, Now and playback controls, event markers, reduced-motion behavior, and an assistive-technology summary.
 
 Acceptance criteria:
 
