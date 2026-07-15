@@ -150,7 +150,17 @@ Acceptance criteria:
 
 **Goal:** Prove the defining time-driven atmosphere experience with deterministic mock data.
 
+**Implementation status:**
+
+- [x] ATM-101 scenario fixtures
+- [ ] ATM-102 selected-time state and scrubber
+- [ ] ATM-103 Home scene engine
+- [ ] ATM-104 synchronized interpretation and conditions
+- [ ] ATM-105 calm-weather Home state
+
 #### ATM-101 Create scenario fixtures
+
+**Completed:** July 15, 2026. Fixtures are synthetic, deterministic, validated at runtime, and include the additional alert-presentation and sensor-divergence scenarios required by the Codex handoff.
 
 Acceptance criteria:
 
