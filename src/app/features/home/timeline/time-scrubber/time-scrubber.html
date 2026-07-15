@@ -1,0 +1,51 @@
+<section class="timeline" aria-labelledby="timeline-heading">
+  <div class="timeline-heading-row">
+    <div>
+      <p class="eyebrow">Time exploration</p>
+      <h2 id="timeline-heading">
+        {{ formatTimestamp(selectedTime.selectedSnapshot()?.validAt ?? '') }}
+      </h2>
+    </div>
+    <div class="controls">
+      <button data-cy="timeline-now" type="button" (click)="selectedTime.selectNow()">Now</button>
+      <button
+        type="button"
+        data-cy="timeline-play"
+        (click)="selectedTime.togglePlayback()"
+        [disabled]="selectedTime.reducedMotion()"
+        [attr.aria-pressed]="selectedTime.playing()"
+      >
+        {{ selectedTime.playing() ? 'Pause' : 'Play' }}
+      </button>
+    </div>
+  </div>
+
+  <label class="sr-only" for="atmos-time">Selected atmospheric time</label>
+  <input
+    id="atmos-time"
+    data-cy="timeline-range"
+    type="range"
+    min="0"
+    [max]="maximumIndex()"
+    step="1"
+    [value]="selectedTime.selectedIndex()"
+    (input)="selectFromInput($event)"
+    [attr.aria-valuetext]="announcement()"
+  />
+
+  <ol class="markers" aria-label="Significant timeline events">
+    @for (marker of markers; track marker.index) {
+      <li
+        [style.inset-inline-start.%]="(marker.index / maximumIndex()) * 100"
+        [class.solar]="marker.kind === 'solar'"
+      >
+        <span aria-hidden="true"></span>{{ marker.label }}
+      </li>
+    }
+  </ol>
+
+  <p class="sr-only" aria-live="polite">{{ announcement() }}</p>
+  @if (selectedTime.reducedMotion()) {
+    <p class="motion-note">Playback is unavailable while reduced motion is enabled.</p>
+  }
+</section>
