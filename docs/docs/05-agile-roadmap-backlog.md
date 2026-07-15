@@ -155,7 +155,7 @@ Acceptance criteria:
 - [x] ATM-101 scenario fixtures
 - [x] ATM-102 selected-time state and scrubber
 - [x] ATM-103 Home scene engine
-- [ ] ATM-104 synchronized interpretation and conditions
+- [x] ATM-104 synchronized interpretation and conditions
 - [ ] ATM-105 calm-weather Home state
 
 #### ATM-101 Create scenario fixtures
@@ -201,6 +201,8 @@ Acceptance criteria:
 - scene remains readable without Canvas
 
 #### ATM-104 Synchronize interpretation and conditions
+
+**Completed:** July 15, 2026. Interpretation, drivers, confidence, surface metrics, validity time, provenance, scene, and timeline derive from the shared selected snapshot. Temperature is visually secondary, values are rounded to supported precision, and missing snapshots produce an explicit insufficient-data state.
 
 Acceptance criteria:
 

@@ -1,0 +1,72 @@
+:host {
+  display: block;
+}
+.interpretation,
+.insufficient {
+  padding: clamp(var(--space-5), 5vw, var(--space-8));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--surface-primary);
+}
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--color-action-emphasis);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 500;
+  line-height: 1.12;
+}
+.explanation,
+.insufficient p {
+  max-width: 42rem;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.drivers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-5) 0;
+  padding: 0;
+  list-style: none;
+}
+.drivers li {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+.trust-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+details {
+  margin-block-start: var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+}
+summary {
+  min-height: var(--touch-target);
+  cursor: pointer;
+  align-content: center;
+  color: var(--color-action-emphasis);
+}
+details ul {
+  margin-block-end: 0;
+  padding-inline-start: var(--space-5);
+}

@@ -1,7 +1,7 @@
 describe('Atmos app shell', () => {
   it('navigates across the approved primary routes', () => {
     cy.visit('/');
-    cy.contains('h1', 'The atmosphere, explained.').should('be.visible');
+    cy.contains('h1', 'Calm and slowly drying').should('be.visible');
     cy.contains('a', 'Layers').click();
     cy.location('pathname').should('equal', '/layers');
     cy.contains('h1', 'Layers').should('be.visible');
@@ -17,6 +17,12 @@ describe('Atmos app shell', () => {
     cy.get('[data-cy="atmospheric-scene"]')
       .should('have.attr', 'aria-label')
       .and('contain', 'light precipitation');
+    cy.get('[data-cy="atmospheric-interpretation"]')
+      .should('contain', 'Storms developing')
+      .and('contain', 'Jul 16, 12:00 AM EDT');
+    cy.get('[data-cy="atmospheric-conditions"]')
+      .should('contain', '1.2 mm/h')
+      .and('contain', '6 m/s from 190°');
     cy.get('[data-cy="timeline-play"]').should('have.attr', 'aria-pressed', 'false').click();
     cy.get('[data-cy="timeline-play"]').should('have.attr', 'aria-pressed', 'true');
   });
