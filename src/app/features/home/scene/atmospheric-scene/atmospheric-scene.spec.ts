@@ -58,6 +58,32 @@ describe('AtmosphericScene', () => {
     expect(environment.src).toContain('active-overcast.webp');
   });
 
+  it('exposes dusk and night phases without replacing the registered scene frame', async () => {
+    const scene = fixture.nativeElement.querySelector('[role="img"]') as HTMLElement;
+    const environmentFrame = fixture.nativeElement.querySelector('.environment-layer');
+
+    expect(scene.dataset['solarPhase']).toBe('dawn');
+
+    selectedTime.selectIndex(13);
+    await fixture.whenStable();
+    expect(scene.dataset['solarPhase']).toBe('dusk');
+    expect(
+      (fixture.nativeElement.querySelector('[data-layer="environment"]') as HTMLImageElement).src,
+    ).toContain('calm-dusk.webp');
+    expect(
+      (fixture.nativeElement.querySelector('[data-layer="city-lights"]') as HTMLElement).style
+        .opacity,
+    ).toBe('0.3');
+
+    selectedTime.selectIndex(14);
+    await fixture.whenStable();
+    expect(scene.dataset['solarPhase']).toBe('night');
+    expect(fixture.nativeElement.querySelector('.environment-layer')).toBe(environmentFrame);
+    expect(
+      (fixture.nativeElement.querySelector('[data-layer="environment"]') as HTMLImageElement).src,
+    ).toContain('calm-night.webp');
+  });
+
   it('reduces raster cloud layers at low visual quality', async () => {
     expect(fixture.nativeElement.querySelectorAll('[data-layer="cloud"]')).toHaveLength(2);
 

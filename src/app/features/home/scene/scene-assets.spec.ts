@@ -50,6 +50,19 @@ describe('deriveSceneAssets', () => {
     );
   });
 
+  it('uses matched calm plates across every solar phase', () => {
+    expect(deriveSceneAssets(calmDawn, 'high').environment.webp).toContain('calm-dawn.webp');
+    expect(
+      deriveSceneAssets({ ...calmDawn, solarPhase: 'day' }, 'high').environment.webp,
+    ).toContain('calm-dawn.webp');
+    expect(
+      deriveSceneAssets({ ...calmDawn, solarPhase: 'dusk' }, 'high').environment.webp,
+    ).toContain('calm-dusk.webp');
+    expect(
+      deriveSceneAssets({ ...calmDawn, solarPhase: 'night' }, 'high').environment.webp,
+    ).toContain('calm-night.webp');
+  });
+
   it('reduces texture layers for medium and low quality without removing the environment', () => {
     const broken = { ...calmDawn, cloudCategory: 'broken' } as const;
 
