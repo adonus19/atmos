@@ -118,3 +118,19 @@ Final prompt:
 Final prompt:
 
 > Change only the time-of-day lighting from calm dawn to calm dusk. Preserve the exact camera position, crop, mountain ridgelines, valley geometry, foreground trees, forest detail, mist placement, and 16:9 composition pixel-consistently so this plate can crossfade with the source without any spatial jump. The sun has just moved below the left horizon; use restrained afterglow in peach, rose, muted violet, and deepening blue with a naturally dimmer forest and valley. Keep the upper sky open for separately rendered weather. No clouds, city lights, stars, UI, text, logo, watermark, wind marks, precipitation, lightning, buildings, new objects, stylization, blur, blockiness, painterly texture, or artificial HDR.
+
+### Calm night environment plate — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `lighting-weather`
+- **Edit target:** `public/assets/scenes/home/environment/calm-dusk-source.png`
+- **Source:** `public/assets/scenes/home/environment/calm-night-source.png`
+- **Delivery derivative:** `public/assets/scenes/home/environment/calm-night.webp`
+- **Native dimensions:** 1672×941 (preserved; not upscaled)
+- **Transfer size:** approximately 42 KB for the WebP derivative
+- **Status:** production candidate pending crossfade and in-app visual acceptance; stars and city lights intentionally remain separate layers
+
+Final prompt:
+
+> Change only the time-of-day lighting from calm dusk to a clear calm night. Preserve the exact camera position, crop, mountain ridgelines, valley geometry, foreground trees, forest detail, mist placement, and 16:9 composition pixel-consistently so this plate can crossfade with the dawn and dusk plates without any spatial jump. Use natural deep navy and muted indigo ambient moonless-night illumination, readable but genuinely dark terrain layers, and subtle cool atmospheric depth. Keep the upper sky open for separately rendered stars and weather. No sun, sunset afterglow, clouds, stars, moon, city lights, artificial lights, UI, text, logo, watermark, wind marks, precipitation, lightning, buildings, new objects, stylization, blur, blockiness, painterly texture, artificial HDR, or excessive blue saturation.
