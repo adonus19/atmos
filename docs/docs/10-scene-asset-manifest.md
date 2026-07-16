@@ -91,7 +91,7 @@ Cloud layers begin as neutral-grayscale luminance sources on black. Their bright
 
 - **Tools:** ImageMagick 7.1.2 and libavif 1.4.2
 - **Alpha conversion:** grayscale luminance, 2% black-point clamp, white color plane, copied opacity
-- **Alpha validation:** all five alpha PNG masters report `GrayscaleAlpha`, alpha minimum 0, nonzero alpha maximum, and a fully transparent top-left corner
+- **Alpha validation:** all cloud/fog alpha PNG masters report `GrayscaleAlpha`, alpha minimum 0, nonzero alpha maximum, and a fully transparent top-left corner; the foreground master has expected edge foliage at its cropped top-left registration point
 - **WebP:** quality 68, alpha quality 68; all cloud/fog delivery files are below the 180 KB initial budget
 - **AVIF:** color quality 58, alpha quality 88 for cloud/fog layers; all delivery files are below their initial budgets
 
@@ -262,3 +262,21 @@ Final prompt:
 Final prompt:
 
 > Create a registration-neutral 16:9 atmospheric fog luminance mask on a pure solid black field. Show low, shallow valley fog and layered ground-hugging haze: long soft horizontal ribbons, translucent-looking billows, delicate feathered edges, uneven density, and broad gaps. Render the fog in dim-to-medium neutral grayscale so luminance can become opacity during local alpha conversion. Restrict nearly all fog to the lower 38% of the frame, with the strongest subtle bands near the lower-middle and a clean black upper 55%. Let a few ribbons exit the left and right edges for restrained horizontal drift. No sky color, horizon line, terrain, trees, cloud deck, cumulus, smoke plume, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, bright white wall, repeated waves, blockiness, painterly marks, or noise banding.
+
+### Foreground tree-line layer — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `photorealistic-natural`
+- **Source:** `public/assets/scenes/home/foreground/tree-line-luminance-source.png`
+- **Alpha master:** `public/assets/scenes/home/foreground/tree-line-alpha.png`
+- **Delivery derivatives:** `public/assets/scenes/home/foreground/tree-line.webp` and `tree-line.avif`
+- **Delivery dimensions:** 1672×512, cropped from the source's unused upper sky without upscaling
+- **Transfer size:** approximately 153 KB WebP and 148 KB AVIF, both below the 160 KB initial budget
+- **Edge treatment:** a short top-edge alpha fade removes the crop seam; validation reports a fully transparent top row
+- **Intended composition:** foreground depth layer with code-driven color, opacity and restrained parallax
+- **Status:** production candidate pending in-app visual acceptance
+
+Final prompt:
+
+> Create a high-detail 16:9 foreground forest silhouette luminance mask on a pure solid black field. Show a natural Carolina Piedmont woodland edge along the bottom: layered deciduous canopies, a few restrained pine forms, irregular branch tips, realistic leaf-cluster texture, varied tree heights, and small natural gaps. Render the foliage in neutral grayscale, with the closest vegetation brightest and subtle depth variation, so luminance can become opacity during local alpha conversion. Vegetation occupies the bottom 30% to 42% with an irregular skyline; left and right edges exit naturally; the center remains somewhat lower to preserve the distant valley view. No single specimen or symmetrical framing. No sky color, mountain, valley, fog, clouds, buildings, roads, people, animals, text, UI, logo, watermark, frame, ground plane, flowers, tropical palms, dead horror trees, hard vector edges, blocky clusters, painterly marks, repeating pattern, or artificial topiary shapes.

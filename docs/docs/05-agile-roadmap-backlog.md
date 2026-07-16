@@ -246,7 +246,7 @@ Acceptance criteria:
 
 #### ATM-107 Create and optimize environmental assets
 
-**In progress:** July 16, 2026. All required environment, city-light, cloud-category and valley-fog source candidates now have validated alpha masters where applicable plus budget-compliant WebP/AVIF derivatives. Foreground treatment and product acceptance of the native 1672×941 environment masters remain open.
+**In progress:** July 16, 2026. All required environment, city-light, cloud-category, valley-fog and foreground candidates now have validated alpha masters where applicable plus budget-compliant WebP/AVIF derivatives. Product acceptance of the native 1672×941 environment masters is the only remaining asset decision.
 
 Acceptance criteria:
 
