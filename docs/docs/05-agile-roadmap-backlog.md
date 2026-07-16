@@ -156,7 +156,7 @@ Acceptance criteria:
 - [x] ATM-102 selected-time state and scrubber
 - [x] ATM-103 Home scene engine
 - [x] ATM-104 synchronized interpretation and conditions
-- [ ] ATM-105 calm-weather Home state
+- [x] ATM-105 calm-weather Home state
 
 #### ATM-101 Create scenario fixtures
 
@@ -213,6 +213,8 @@ Acceptance criteria:
 - insufficient-data state supported
 
 #### ATM-105 Implement calm-weather Home state
+
+**Completed:** July 16, 2026. The calm Home state derives a useful drying or steady-window insight from future fixture values, uses restrained positive treatment, reduces calm flow prominence, and has a stable 390×844 coded-state screenshot baseline under `cypress/visual-baselines/`.
 
 Acceptance criteria:
 

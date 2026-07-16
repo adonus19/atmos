@@ -4,6 +4,7 @@ export type SceneQuality = 'high' | 'medium' | 'low';
 export type SolarPhase = 'dawn' | 'day' | 'dusk' | 'night';
 export type CloudCategory = 'clear' | 'scattered' | 'broken' | 'overcast';
 export type PrecipitationCategory = 'off' | 'light' | 'moderate' | 'heavy';
+export type SceneActivity = 'calm' | 'transition' | 'active';
 
 export interface ScenePresentation {
   readonly solarPhase: SolarPhase;
@@ -13,6 +14,7 @@ export interface ScenePresentation {
   readonly windSpeedMps: number;
   readonly windDirectionDegrees: number;
   readonly precipitationCategory: PrecipitationCategory;
+  readonly activity: SceneActivity;
   readonly summary: string;
 }
 
@@ -58,6 +60,12 @@ export function deriveScenePresentation(
           ? 'moderate'
           : 'heavy';
   const windParticleCount = quality === 'high' ? 18 : quality === 'medium' ? 10 : 5;
+  const activity: SceneActivity =
+    precipitationCategory === 'moderate' || precipitationCategory === 'heavy'
+      ? 'active'
+      : precipitationCategory === 'light' || snapshot.surface.wind.speedMps >= 4
+        ? 'transition'
+        : 'calm';
 
   return {
     solarPhase,
@@ -67,6 +75,7 @@ export function deriveScenePresentation(
     windSpeedMps: snapshot.surface.wind.speedMps,
     windDirectionDegrees: snapshot.surface.wind.directionDegrees,
     precipitationCategory,
+    activity,
     summary: `${snapshot.interpretation.state}. ${cloudCategory} cloud coverage, ${precipitationCategory} precipitation, wind ${Math.round(snapshot.surface.wind.speedMps)} meters per second from ${Math.round(snapshot.surface.wind.directionDegrees)} degrees.`,
   };
 }

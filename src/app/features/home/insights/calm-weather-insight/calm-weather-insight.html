@@ -1,0 +1,11 @@
+@if (insight(); as current) {
+  <aside class="insight" aria-labelledby="calm-insight-title" data-cy="calm-insight">
+    <span class="indicator" aria-hidden="true"></span>
+    <div>
+      <p class="eyebrow">Calm-weather insight</p>
+      <h2 id="calm-insight-title">{{ current.title }}</h2>
+      <p>{{ current.summary }}</p>
+      <p class="evidence">{{ current.evidence }} Synthetic scenario.</p>
+    </div>
+  </aside>
+}

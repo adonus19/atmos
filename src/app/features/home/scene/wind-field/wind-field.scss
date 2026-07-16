@@ -1,6 +1,7 @@
 :host,
 .wind {
   position: absolute;
+  z-index: 2;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
@@ -12,7 +13,7 @@ span {
   position: absolute;
   width: 12%;
   height: 1px;
-  inset-inline-start: -18%;
+  inset-inline-start: calc(var(--particle-index) * 5%);
   inset-block-start: calc(8% + (var(--particle-index) * 5%));
   background: linear-gradient(to right, transparent, var(--atmos-cyan-300));
   opacity: 0.5;
@@ -20,13 +21,15 @@ span {
   animation-delay: calc(var(--particle-index) * -180ms);
 }
 @keyframes flow {
+  from {
+    transform: translateX(-180%);
+  }
   to {
-    transform: translateX(950%);
+    transform: translateX(780%);
   }
 }
 @media (prefers-reduced-motion: reduce) {
   span {
     animation: none;
-    inset-inline-start: calc(var(--particle-index) * 5%);
   }
 }

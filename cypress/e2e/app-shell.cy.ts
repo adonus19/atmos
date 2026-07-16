@@ -7,6 +7,25 @@ describe('Atmos app shell', () => {
     cy.contains('h1', 'Layers').should('be.visible');
   });
 
+  it('proves calm weather remains useful and restrained', () => {
+    cy.visit('/home');
+    cy.get('[data-cy="calm-insight"]')
+      .should('contain', 'A drier window is developing')
+      .and('contain', 'Synthetic scenario');
+    cy.get('[data-cy="atmospheric-scene"]').should('have.attr', 'data-activity', 'calm');
+    cy.get('[data-cy="atmospheric-interpretation"]').should('not.have.class', 'hazard');
+    cy.document().then((document) => {
+      const style = document.createElement('style');
+      style.textContent =
+        '*, *::before, *::after { animation: none !important; transition: none !important; }';
+      document.head.append(style);
+    });
+    cy.screenshot('calm-home-mobile', { capture: 'viewport', overwrite: true });
+    cy.get('[data-cy="atmospheric-scene"]').scrollIntoView().screenshot('calm-scene-mobile', {
+      overwrite: true,
+    });
+  });
+
   it('synchronizes the atmospheric summary while scrubbing time', () => {
     cy.visit('/home');
     cy.get('[data-cy="timeline-range"]').invoke('val', 18).trigger('input');

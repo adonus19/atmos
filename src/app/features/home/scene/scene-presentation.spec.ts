@@ -10,7 +10,9 @@ describe('deriveScenePresentation', () => {
     expect(deriveScenePresentation(snapshots[13]!, 'high').solarPhase).toBe('dusk');
     expect(deriveScenePresentation(snapshots[18]!, 'high').solarPhase).toBe('night');
     expect(deriveScenePresentation(snapshots[0]!, 'high').cloudCategory).toBe('scattered');
+    expect(deriveScenePresentation(snapshots[0]!, 'high').activity).toBe('calm');
     expect(deriveScenePresentation(snapshots[20]!, 'high').cloudCategory).toBe('broken');
+    expect(deriveScenePresentation(snapshots[20]!, 'high').activity).toBe('active');
   });
 
   it('maps moisture, visibility, wind, and precipitation without inventing values', () => {
