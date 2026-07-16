@@ -102,3 +102,19 @@ Responsive derivatives may use 1024- and 1536-pixel widths. Do not upscale a sma
 Final prompt:
 
 > Create a photorealistic, high-definition 16:9 calm dawn environment plate for a cinematic weather app, evoking the Carolina Piedmont and Blue Ridge foothills without depicting a literal location. Keep the lower 38% as layered forested ridges, a misty valley, and detailed foreground tree silhouettes; reserve the upper 62% as open, softly illuminated sky. Use natural sunrise light, restrained blue-green terrain, warm peach-gold horizon color, realistic atmospheric depth, and crisp organic textures. No UI, text, logo, watermark, clouds, wind marks, precipitation, or lightning. The environment must work as a reusable background layer behind independently rendered weather effects.
+
+### Calm dusk environment plate — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `lighting-weather`
+- **Edit target:** `public/assets/scenes/home/environment/calm-dawn-source.png`
+- **Source:** `public/assets/scenes/home/environment/calm-dusk-source.png`
+- **Delivery derivative:** `public/assets/scenes/home/environment/calm-dusk.webp`
+- **Native dimensions:** 1672×941 (preserved; not upscaled)
+- **Transfer size:** approximately 54 KB for the WebP derivative
+- **Status:** production candidate pending crossfade and in-app visual acceptance
+
+Final prompt:
+
+> Change only the time-of-day lighting from calm dawn to calm dusk. Preserve the exact camera position, crop, mountain ridgelines, valley geometry, foreground trees, forest detail, mist placement, and 16:9 composition pixel-consistently so this plate can crossfade with the source without any spatial jump. The sun has just moved below the left horizon; use restrained afterglow in peach, rose, muted violet, and deepening blue with a naturally dimmer forest and valley. Keep the upper sky open for separately rendered weather. No clouds, city lights, stars, UI, text, logo, watermark, wind marks, precipitation, lightning, buildings, new objects, stylization, blur, blockiness, painterly texture, or artificial HDR.
