@@ -246,7 +246,7 @@ Acceptance criteria:
 
 #### ATM-107 Create and optimize environmental assets
 
-**In progress:** July 16, 2026. All four geometry-matched environment candidates, the registered city-light emission mask and all required cloud-category luminance layers have optimized WebP derivatives recorded in the scene asset manifest. Valley fog, alpha conversion and AVIF delivery are still open.
+**In progress:** July 16, 2026. All required environment, city-light, cloud-category and valley-fog source candidates now have validated alpha masters where applicable plus budget-compliant WebP/AVIF derivatives. Foreground treatment and product acceptance of the native 1672×941 environment masters remain open.
 
 Acceptance criteria:
 
