@@ -35,4 +35,47 @@ describe('AtmosphericScene', () => {
     await fixture.whenStable();
     expect(fixture.nativeElement.querySelectorAll('app-wind-field span')).toHaveLength(5);
   });
+
+  it('renders the selected environment with AVIF and WebP sources', () => {
+    const environment = fixture.nativeElement.querySelector(
+      '[data-layer="environment"]',
+    ) as HTMLImageElement;
+    const avif = fixture.nativeElement.querySelector(
+      '[data-layer="environment-avif"]',
+    ) as HTMLSourceElement;
+
+    expect(environment.src).toContain('/assets/scenes/home/environment/calm-dawn.webp');
+    expect(avif.srcset).toContain('/assets/scenes/home/environment/calm-dawn.avif');
+  });
+
+  it('switches to active environment assets with the selected snapshot', async () => {
+    selectedTime.selectIndex(24);
+    await fixture.whenStable();
+
+    const environment = fixture.nativeElement.querySelector(
+      '[data-layer="environment"]',
+    ) as HTMLImageElement;
+    expect(environment.src).toContain('active-overcast.webp');
+  });
+
+  it('reduces raster cloud layers at low visual quality', async () => {
+    expect(fixture.nativeElement.querySelectorAll('[data-layer="cloud"]')).toHaveLength(2);
+
+    fixture.componentRef.setInput('quality', 'low');
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelectorAll('[data-layer="cloud"]')).toHaveLength(1);
+  });
+
+  it('keeps a usable CSS fallback when an image cannot load', async () => {
+    const environment = fixture.nativeElement.querySelector(
+      '[data-layer="environment"]',
+    ) as HTMLImageElement;
+    environment.dispatchEvent(new Event('error'));
+    await fixture.whenStable();
+
+    const scene = fixture.nativeElement.querySelector('[role="img"]') as HTMLElement;
+    expect(scene.classList).toContain('asset-fallback');
+    expect(scene.getAttribute('aria-label')).toContain('Calm and slowly drying');
+  });
 });

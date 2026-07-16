@@ -1,6 +1,7 @@
 # Atmos Home Scene Asset Manifest
 
-**Status:** Approved implementation baseline  
+**Status:** Approved production baseline
+
 **Created:** July 16, 2026  
 **Owner:** Product owner / project maintainer
 
@@ -106,8 +107,8 @@ Cloud layers begin as neutral-grayscale luminance sources on black. Their bright
 - **Delivery derivatives:** `public/assets/scenes/home/environment/calm-dawn.webp` and `calm-dawn.avif`
 - **Native dimensions:** 1672×941 (preserved; not upscaled)
 - **Transfer size:** approximately 94 KB for the WebP derivative
-- **Status:** production candidate pending in-app visual acceptance
-- **Known gap:** the generated master is below the 2048×1152 target. The native 1672×941 candidate is not upscaled; product acceptance or a new 2048-wide master is required before ATM-107 can close.
+- **Status:** production baseline approved by the product owner on July 16, 2026
+- **Resolution decision:** native 1672×941 masters are accepted without upscaling; larger masters remain an evidence-driven future enhancement if desktop acceptance testing requires them.
 
 Final prompt:
 

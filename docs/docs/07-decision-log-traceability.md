@@ -22,6 +22,7 @@
 | ADR-016 | Use SCSS for token organization and GitHub Actions for CI.                                                             | SCSS supports maintainable global tokens; GitHub matches the required PR and review workflow.                                                                                    | Locked |
 | ADR-017 | License Atmos under the MIT License.                                                                                   | Keeps reuse and contribution terms permissive and explicit.                                                                                                                      | Locked |
 | ADR-018 | Use a hybrid 2.5D Home renderer with production raster environment layers and code-driven data overlays.               | CSS primitives alone did not meet the approved cinematic direction. Layered raster art adds natural detail while SVG/Canvas/CSS preserve data-driven behavior and accessibility. | Locked |
+| ADR-019 | Accept the native 1672×941 generated environment masters as the initial production baseline.                           | The assets are sharp for the mobile-first scene, retain matched geometry, and avoid destructive upscaling; desktop acceptance testing can trigger future larger masters.         | Locked |
 
 ## 2. Visual decision history
 

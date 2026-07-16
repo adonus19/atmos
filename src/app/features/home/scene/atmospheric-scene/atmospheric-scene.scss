@@ -25,9 +25,73 @@
   content: '';
   pointer-events: none;
 }
+
+.layer,
+.layer img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.layer {
+  display: block;
+}
+
+.layer img {
+  object-fit: cover;
+}
+
+.environment-layer {
+  z-index: 1;
+  background: linear-gradient(180deg, var(--atmos-sky-500), var(--atmos-ink-800));
+}
+
+.city-lights-layer {
+  z-index: 2;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  transition: opacity var(--motion-environment) linear;
+}
+
+.cloud-texture-layer {
+  z-index: 3;
+  opacity: var(--layer-opacity);
+  transition: opacity var(--motion-environment) linear;
+}
+
+.fog-layer {
+  z-index: 4;
+  transition: opacity var(--motion-environment) linear;
+}
+
+.foreground-layer {
+  z-index: 8;
+  inset-block-start: auto;
+  height: 52%;
+}
+
+.foreground-layer img {
+  object-fit: fill;
+}
+
+@media (max-width: 40rem) {
+  .environment-layer img,
+  .city-lights-layer,
+  .cloud-texture-layer img,
+  .fog-layer img {
+    object-position: 50% center;
+  }
+
+  .foreground-layer {
+    height: 46%;
+  }
+}
+
 .haze {
   position: absolute;
-  z-index: 2;
+  z-index: 5;
   inset: 28% 0 0;
   background: linear-gradient(to top, var(--atmos-paper-100), transparent);
   transition: opacity var(--motion-environment) linear;
@@ -40,6 +104,25 @@
 .scene.calm app-cloud-bands {
   opacity: 0.88;
 }
+
+app-cloud-bands,
+.terrain {
+  display: none;
+}
+
+.asset-fallback app-cloud-bands,
+.asset-fallback .terrain {
+  display: block;
+}
+
+.asset-fallback .environment-layer,
+.asset-fallback .city-lights-layer,
+.asset-fallback .cloud-texture-layer,
+.asset-fallback .fog-layer,
+.asset-fallback .foreground-layer {
+  display: none;
+}
+
 .terrain {
   position: absolute;
   z-index: 3;
@@ -49,6 +132,24 @@
   border-radius: 50% 50% 0 0;
   background: var(--atmos-ink-800);
   transform: rotate(-2deg);
+}
+
+app-wind-field {
+  position: relative;
+  z-index: 6;
+}
+
+app-precipitation-layer {
+  position: relative;
+  z-index: 7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .city-lights-layer,
+  .cloud-texture-layer,
+  .fog-layer {
+    transition-duration: 0.01ms;
+  }
 }
 .terrain-back {
   inset-block-end: 4%;

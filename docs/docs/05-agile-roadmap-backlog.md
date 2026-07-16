@@ -229,7 +229,7 @@ Acceptance criteria:
 **Goal:** Bring the functional Home proof to the approved cinematic, atmospheric and dimensional quality without compromising data honesty, accessibility or mobile performance.
 
 - [x] ATM-106 define production scene asset manifest
-- [ ] ATM-107 create and optimize environmental assets
+- [x] ATM-107 create and optimize environmental assets
 - [ ] ATM-108 build hybrid scene compositor
 - [ ] ATM-109 implement calm dawn/day, dusk and night variants
 - [ ] ATM-110 visual, accessibility and performance acceptance
@@ -246,7 +246,7 @@ Acceptance criteria:
 
 #### ATM-107 Create and optimize environmental assets
 
-**In progress:** July 16, 2026. All required environment, city-light, cloud-category, valley-fog and foreground candidates now have validated alpha masters where applicable plus budget-compliant WebP/AVIF derivatives. Product acceptance of the native 1672×941 environment masters is the only remaining asset decision.
+**Completed:** July 16, 2026. All required environment, city-light, cloud-category, valley-fog and foreground candidates have validated alpha masters where applicable plus budget-compliant WebP/AVIF derivatives. The product owner approved the native 1672×941 environment masters as the production baseline.
 
 Acceptance criteria:
 
@@ -258,6 +258,8 @@ Acceptance criteria:
 - no text, watermark or baked-in UI/weather values
 
 #### ATM-108 Build hybrid scene compositor
+
+**Implementation complete; CI verification pending:** July 16, 2026. TDD covers asset selection, selected-state switching, quality-tier layer caps and image-error fallback. The Angular raster stack composes environment, cloud, fog, city-light and foreground layers behind code-driven wind and precipitation while preserving the synchronized accessible summary. Local Cypress is blocked because its signed Electron executable starts in Node mode and rejects Cypress launch flags after a clean reinstall; equivalent browser assertions are committed for GitHub Actions validation.
 
 Acceptance criteria:
 

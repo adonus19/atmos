@@ -6,10 +6,64 @@
     [attr.aria-label]="scene.summary"
     data-cy="atmospheric-scene"
     [attr.data-activity]="scene.activity"
+    [class.asset-fallback]="assetFallback()"
   >
     <app-sky-layer [phase]="scene.solarPhase" />
+    @if (assets(); as sceneAssets) {
+      <picture class="layer environment-layer" aria-hidden="true">
+        <source
+          data-layer="environment-avif"
+          type="image/avif"
+          [srcset]="sceneAssets.environment.avif"
+        />
+        <img
+          data-layer="environment"
+          [src]="sceneAssets.environment.webp"
+          alt=""
+          decoding="async"
+          fetchpriority="high"
+          (error)="markAssetUnavailable()"
+        />
+      </picture>
+
+      <img
+        class="layer city-lights-layer"
+        data-layer="city-lights"
+        [src]="sceneAssets.cityLights.webp"
+        [style.opacity]="sceneAssets.cityLightsOpacity"
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+        (error)="markAssetUnavailable()"
+      />
+
+      @for (cloud of sceneAssets.clouds; track cloud.id) {
+        <picture
+          class="layer cloud-texture-layer"
+          aria-hidden="true"
+          data-layer="cloud"
+          [attr.data-cloud]="cloud.id"
+          [style.--layer-opacity]="cloud.opacity"
+          [style.--drift-ratio]="cloud.driftRatio"
+        >
+          <source type="image/avif" [srcset]="cloud.avif" />
+          <img [src]="cloud.webp" alt="" decoding="async" (error)="markAssetUnavailable()" />
+        </picture>
+      }
+
+      <picture class="layer fog-layer" aria-hidden="true" [style.opacity]="sceneAssets.fogOpacity">
+        <source type="image/avif" [srcset]="sceneAssets.fog.avif" />
+        <img
+          data-layer="fog"
+          [src]="sceneAssets.fog.webp"
+          alt=""
+          decoding="async"
+          (error)="markAssetUnavailable()"
+        />
+      </picture>
+    }
     <app-cloud-bands [category]="scene.cloudCategory" />
-    <div class="haze" [style.opacity]="scene.hazeOpacity"></div>
+    <div class="haze" [style.opacity]="scene.hazeOpacity" aria-hidden="true"></div>
     <app-wind-field
       [particleCount]="scene.windParticleCount"
       [speedMps]="scene.windSpeedMps"
@@ -18,6 +72,18 @@
     <app-precipitation-layer [category]="scene.precipitationCategory" />
     <div class="terrain terrain-back" aria-hidden="true"></div>
     <div class="terrain terrain-front" aria-hidden="true"></div>
+    @if (assets(); as sceneAssets) {
+      <picture class="layer foreground-layer" aria-hidden="true">
+        <source type="image/avif" [srcset]="sceneAssets.foreground.avif" />
+        <img
+          data-layer="foreground"
+          [src]="sceneAssets.foreground.webp"
+          alt=""
+          decoding="async"
+          (error)="markAssetUnavailable()"
+        />
+      </picture>
+    }
     <figcaption class="sr-only">{{ scene.summary }}</figcaption>
   </figure>
 } @else {

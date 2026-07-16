@@ -13,6 +13,15 @@ describe('Atmos app shell', () => {
       .should('contain', 'A drier window is developing')
       .and('contain', 'Synthetic scenario');
     cy.get('[data-cy="atmospheric-scene"]').should('have.attr', 'data-activity', 'calm');
+    cy.get('[data-layer="environment"]')
+      .should('be.visible')
+      .and('have.attr', 'src')
+      .and('contain', '/assets/scenes/home/environment/calm-dawn.webp');
+    cy.get('[data-layer="environment-avif"]')
+      .should('have.attr', 'srcset')
+      .and('contain', '/assets/scenes/home/environment/calm-dawn.avif');
+    cy.get('[data-layer="cloud"]').should('have.length', 2);
+    cy.get('[data-layer="foreground"]').should('be.visible');
     cy.get('[data-cy="atmospheric-interpretation"]').should('not.have.class', 'hazard');
     cy.document().then((document) => {
       const style = document.createElement('style');
@@ -36,6 +45,9 @@ describe('Atmos app shell', () => {
     cy.get('[data-cy="atmospheric-scene"]')
       .should('have.attr', 'aria-label')
       .and('contain', 'light precipitation');
+    cy.get('[data-layer="environment"]')
+      .should('have.attr', 'src')
+      .and('contain', '/assets/scenes/home/environment/active-overcast.webp');
     cy.get('[data-cy="atmospheric-interpretation"]')
       .should('contain', 'Storms developing')
       .and('contain', 'Jul 16, 12:00 AM EDT');
