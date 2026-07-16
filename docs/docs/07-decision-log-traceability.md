@@ -21,6 +21,7 @@
 | ADR-015 | Enforce at least 60% coverage across statements, branches, functions and lines, with the same target for changed code. | Establishes a measurable TDD floor while the foundation grows. Angular enforces repository-wide coverage; changed-code enforcement will be added with the repository host. | Locked |
 | ADR-016 | Use SCSS for token organization and GitHub Actions for CI.                                                             | SCSS supports maintainable global tokens; GitHub matches the required PR and review workflow.                                                                              | Locked |
 | ADR-017 | License Atmos under the MIT License.                                                                                   | Keeps reuse and contribution terms permissive and explicit.                                                                                                                | Locked |
+| ADR-018 | Use a hybrid 2.5D Home renderer with production raster environment layers and code-driven data overlays.                | CSS primitives alone did not meet the approved cinematic direction. Layered raster art adds natural detail while SVG/Canvas/CSS preserve data-driven behavior and accessibility. | Locked |
 
 ## 2. Visual decision history
 

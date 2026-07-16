@@ -154,9 +154,9 @@ Acceptance criteria:
 
 - [x] ATM-101 scenario fixtures
 - [x] ATM-102 selected-time state and scrubber
-- [x] ATM-103 Home scene engine
+- [ ] ATM-103 Home scene engine — functional mapping complete; visual acceptance reopened
 - [x] ATM-104 synchronized interpretation and conditions
-- [x] ATM-105 calm-weather Home state
+- [ ] ATM-105 calm-weather Home state — functional behavior complete; visual acceptance reopened
 
 #### ATM-101 Create scenario fixtures
 
@@ -188,7 +188,7 @@ Acceptance criteria:
 
 #### ATM-103 Build Home scene engine
 
-**Completed:** July 15, 2026. The CSS-first scene derives solar phase, cloud category, haze, wind flow, and precipitation exclusively from the selected normalized snapshot. High, medium, and low density tiers are supported, reduced motion stops continuous effects, and the entire scene has a textual equivalent without Canvas.
+**Functional implementation completed:** July 15, 2026. Visual acceptance reopened July 16, 2026 because the CSS-only environmental artwork does not meet the approved cinematic direction. Final completion depends on Sprint 1A.
 
 Acceptance criteria:
 
@@ -214,7 +214,7 @@ Acceptance criteria:
 
 #### ATM-105 Implement calm-weather Home state
 
-**Completed:** July 16, 2026. The calm Home state derives a useful drying or steady-window insight from future fixture values, uses restrained positive treatment, reduces calm flow prominence, and has a stable 390×844 coded-state screenshot baseline under `cypress/visual-baselines/`.
+**Functional implementation completed:** July 16, 2026. Visual acceptance reopened July 16, 2026; existing baselines document the rejected CSS-only state and will be replaced in Sprint 1A.
 
 Acceptance criteria:
 
@@ -223,6 +223,67 @@ Acceptance criteria:
 - no unnecessary warning colors
 - motion is restrained
 - screenshot regression baseline created
+
+### Sprint 1A — Home visual fidelity remediation
+
+**Goal:** Bring the functional Home proof to the approved cinematic, atmospheric and dimensional quality without compromising data honesty, accessibility or mobile performance.
+
+- [x] ATM-106 define production scene asset manifest
+- [ ] ATM-107 create and optimize environmental assets
+- [ ] ATM-108 build hybrid scene compositor
+- [ ] ATM-109 implement calm dawn/day, dusk and night variants
+- [ ] ATM-110 visual, accessibility and performance acceptance
+
+#### ATM-106 Define production scene asset manifest
+
+Acceptance criteria:
+
+- reusable layer stack documented
+- required state variants documented
+- responsive formats, dimensions and budgets documented
+- scientific constraints and generation provenance documented
+- production asset paths established
+
+#### ATM-107 Create and optimize environmental assets
+
+Acceptance criteria:
+
+- high-definition distant environment plates
+- reusable cloud/fog layers
+- foreground foliage/tree treatment
+- dusk/night city-light mask
+- AVIF/WebP delivery derivatives
+- no text, watermark or baked-in UI/weather values
+
+#### ATM-108 Build hybrid scene compositor
+
+Acceptance criteria:
+
+- raster layers composed behind code-driven weather overlays
+- selected snapshot controls layer choice and opacity
+- responsive art direction and quality tiers
+- missing asset fallback remains usable
+- non-visual summary remains synchronized
+
+#### ATM-109 Implement time-of-day variants
+
+Acceptance criteria:
+
+- calm dawn/day, dusk and night share stable geometry
+- city lights appear only when appropriate
+- cloud/fog categories transition without geometry jumps
+- reduced motion uses static states or restrained crossfades
+
+#### ATM-110 Visual and performance acceptance
+
+Acceptance criteria:
+
+- product owner approves coded calm Home against concept direction
+- mobile visual baselines replaced
+- asset transfer and decoded-memory budgets measured
+- high/medium/low quality tiers verified
+- accessibility and reduced-motion gates pass
+- ATM-103 and ATM-105 visual acceptance closed
 
 ### Sprint 2 — Complete Home
 
