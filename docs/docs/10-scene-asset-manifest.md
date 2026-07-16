@@ -150,3 +150,20 @@ Final prompt:
 Final prompt:
 
 > Change only the environmental illumination from calm dawn to a daytime pre-storm, active-development overcast state. Preserve the exact camera position, crop, mountain ridgelines, valley geometry, foreground trees, forest detail, mist placement, and 16:9 composition pixel-consistently so this plate can crossfade with the calm plates without any spatial jump. Use diffuse cool-gray daylight, muted green forest, lowered contrast in distant ridges, and slightly denser-looking atmospheric depth. Remove the visible sun and warm sunrise rays. Keep the upper sky as a clean, subdued slate-gray illumination field for separately rendered cloud layers. No clouds, city lights, stars, moon, artificial lights, UI, text, logo, watermark, wind marks, precipitation, lightning, buildings, new objects, stylization, blur, blockiness, painterly texture, artificial HDR, green cast, or dramatic storm funnel.
+
+### City-light emission mask — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `precise-object-edit`
+- **Geometry reference:** `public/assets/scenes/home/environment/calm-night-source.png`
+- **Source:** `public/assets/scenes/home/masks/city-lights-source.png`
+- **Delivery derivative:** `public/assets/scenes/home/masks/city-lights.webp`
+- **Native dimensions:** 1672×941
+- **Transfer size:** approximately 7 KB for the WebP derivative
+- **Intended composition:** screen blend over dusk/night plates only; opacity remains code-driven
+- **Status:** production candidate pending registered in-app visual acceptance
+
+Final prompt:
+
+> Create a registration-perfect 16:9 emission mask aligned to the night geometry reference. Output a pure solid black field everywhere except for sparse, tiny, softly glowing warm-white light points suggesting a few distant homes and a very small valley settlement. Place lights only on plausible distant valley-floor and lower-slope locations in the middle-distance terrain, following the reference perspective. Keep the mountain skyline, foreground, and entire sky completely black. Use very few lights at varied sizes with lower intensity at distance; no road lines or dense urban grid. No terrain, trees, sky color, clouds, stars, moon, buildings, UI, text, logo, watermark, precipitation, lightning, lens flare, bloom clouds, new scenery, large dots, decorative bokeh, neon colors, or excessive brightness.
