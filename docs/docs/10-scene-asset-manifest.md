@@ -201,3 +201,19 @@ Final prompt:
 Final prompt:
 
 > Create a registration-neutral 16:9 cloud luminance mask on a pure solid black field. Show broken mid-level altocumulus arranged in several natural, uneven bands: moderately soft rounded cloudlets, varied clustered texture, realistic gaps, subtle depth, and no single dominant cloud. Render cloud brightness in neutral grayscale so luminance can become opacity during local alpha conversion. Concentrate the layer across the middle 55% of the frame while leaving broad irregular openings and clean black margins; edge density must taper naturally. It should drift horizontally and combine cleanly with separate cirrus and low-cloud layers. No blue sky, horizon, terrain, trees, valley fog, cirrus wisps, towering cumulus, solid overcast deck, storm shelf, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, halos, repeated tile pattern, blockiness, painterly marks, or noise banding.
+
+### Low scattered-cumulus luminance layer — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `photorealistic-natural`
+- **Source:** `public/assets/scenes/home/clouds/low-scattered-cumulus-luminance-source.png`
+- **Delivery derivative:** `public/assets/scenes/home/clouds/low-scattered-cumulus-luminance.webp`
+- **Native dimensions:** 1672×941
+- **Transfer size:** approximately 23 KB for the WebP derivative
+- **Intended composition:** screen blend pending final alpha conversion
+- **Status:** production candidate pending drift, edge and in-app visual acceptance
+
+Final prompt:
+
+> Create a registration-neutral 16:9 cloud luminance mask on a pure solid black field. Show a small number of low, scattered fair-weather cumulus clouds with crisp organic sunlit crowns, softly modeled interiors, flatter darker bases, varied scale, and generous clear gaps. Render the cloud forms in neutral grayscale so luminance can become opacity during local alpha conversion. Place clouds primarily across the lower-middle sky band, avoiding the bottom 18% and leaving most of the upper half empty. Use asymmetric spacing and partial edge exits so horizontal drift feels natural; no central hero cloud. No blue sky, horizon, terrain, trees, valley fog, cirrus, altocumulus field, towering convection, anvil, overcast deck, storm shelf, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, halos, repeated forms, blockiness, painterly marks, or noise banding.
