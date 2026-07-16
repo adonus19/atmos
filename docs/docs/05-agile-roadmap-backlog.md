@@ -246,6 +246,8 @@ Acceptance criteria:
 
 #### ATM-107 Create and optimize environmental assets
 
+**In progress:** July 16, 2026. The first calm-dawn production candidate and optimized WebP derivative are recorded in the scene asset manifest. Remaining plates, reusable layers, city-light treatment and AVIF delivery are still open.
+
 Acceptance criteria:
 
 - high-definition distant environment plates
