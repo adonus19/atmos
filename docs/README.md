@@ -19,6 +19,7 @@ This folder is the source of truth for Atmos. Codex and human contributors shoul
 | [07-decision-log-traceability.md](docs/07-decision-log-traceability.md)         | Locked decisions, open questions, requirement-to-story traceability and change control         |
 | [08-codex-handoff.md](docs/08-codex-handoff.md)                                 | Repository setup, working agreements, implementation order and initial Codex prompt            |
 | [09-glossary.md](docs/09-glossary.md)                                           | Product, meteorological and engineering vocabulary                                             |
+| [10-scene-asset-manifest.md](docs/10-scene-asset-manifest.md)                   | Production environmental layers, variants, formats, budgets and integration rules              |
 | [assets/](assets/)                                                              | Approved and historical visual references                                                      |
 
 A compiled review copy is provided as `Atmos_Master_Blueprint.docx`. The Markdown files remain authoritative because they are version-controlled and easier for Codex to consume.
