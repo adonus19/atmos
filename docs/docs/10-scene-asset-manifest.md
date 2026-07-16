@@ -185,3 +185,19 @@ Final prompt:
 Final prompt:
 
 > Create a registration-neutral 16:9 cloud luminance mask on a pure solid black field. Show only sparse, thin, high-altitude cirrus filaments: delicate ice-crystal streaks, long feathered wisps, subtle natural variation, and broad open gaps. Render the cirrus in dim-to-medium neutral grayscale so brightness can become opacity during local alpha conversion. Cloud texture occupies mainly the upper 65% with generous empty space; edges taper smoothly to pure black; no horizon, landscape, perspective landmark, or directional sun lighting. It must drift horizontally without an obvious central subject. No blue sky, terrain, trees, fog bank, cumulus, altocumulus, storm cloud, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, halos, blockiness, blur smear, painterly marks, or noise banding.
+
+### Middle altocumulus luminance layer — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `photorealistic-natural`
+- **Source:** `public/assets/scenes/home/clouds/middle-altocumulus-luminance-source.png`
+- **Delivery derivative:** `public/assets/scenes/home/clouds/middle-altocumulus-luminance.webp`
+- **Native dimensions:** 1672×941
+- **Transfer size:** approximately 59 KB for the WebP derivative
+- **Intended composition:** screen blend pending final alpha conversion
+- **Status:** production candidate pending drift, edge and in-app visual acceptance
+
+Final prompt:
+
+> Create a registration-neutral 16:9 cloud luminance mask on a pure solid black field. Show broken mid-level altocumulus arranged in several natural, uneven bands: moderately soft rounded cloudlets, varied clustered texture, realistic gaps, subtle depth, and no single dominant cloud. Render cloud brightness in neutral grayscale so luminance can become opacity during local alpha conversion. Concentrate the layer across the middle 55% of the frame while leaving broad irregular openings and clean black margins; edge density must taper naturally. It should drift horizontally and combine cleanly with separate cirrus and low-cloud layers. No blue sky, horizon, terrain, trees, valley fog, cirrus wisps, towering cumulus, solid overcast deck, storm shelf, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, halos, repeated tile pattern, blockiness, painterly marks, or noise banding.

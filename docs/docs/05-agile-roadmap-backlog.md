@@ -246,7 +246,7 @@ Acceptance criteria:
 
 #### ATM-107 Create and optimize environmental assets
 
-**In progress:** July 16, 2026. All four geometry-matched environment candidates, the registered city-light emission mask and the first high-cirrus luminance layer have optimized WebP derivatives recorded in the scene asset manifest. Remaining cloud/fog layers, alpha conversion and AVIF delivery are still open.
+**In progress:** July 16, 2026. All four geometry-matched environment candidates, the registered city-light emission mask and high/middle cloud luminance layers have optimized WebP derivatives recorded in the scene asset manifest. Low cloud/fog layers, alpha conversion and AVIF delivery are still open.
 
 Acceptance criteria:
 
