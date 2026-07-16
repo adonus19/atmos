@@ -1,5 +1,12 @@
 @if (presentation(); as scene) {
-  <figure class="scene" role="img" [attr.aria-label]="scene.summary" data-cy="atmospheric-scene">
+  <figure
+    class="scene"
+    [class]="scene.activity"
+    role="img"
+    [attr.aria-label]="scene.summary"
+    data-cy="atmospheric-scene"
+    [attr.data-activity]="scene.activity"
+  >
     <app-sky-layer [phase]="scene.solarPhase" />
     <app-cloud-bands [category]="scene.cloudCategory" />
     <div class="haze" [style.opacity]="scene.hazeOpacity"></div>

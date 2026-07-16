@@ -12,6 +12,19 @@
   background: var(--color-surface);
   isolation: isolate;
 }
+
+.scene::after {
+  position: absolute;
+  z-index: 2;
+  inset: auto 8% 24%;
+  height: 14%;
+  border-radius: 50%;
+  background: var(--atmos-cyan-300);
+  filter: blur(var(--space-16));
+  opacity: 0.1;
+  content: '';
+  pointer-events: none;
+}
 .haze {
   position: absolute;
   z-index: 2;
@@ -19,6 +32,13 @@
   background: linear-gradient(to top, var(--atmos-paper-100), transparent);
   transition: opacity var(--motion-environment) linear;
   pointer-events: none;
+}
+.scene.calm app-wind-field {
+  opacity: 0.42;
+  transition: opacity var(--motion-slow) var(--ease-ui);
+}
+.scene.calm app-cloud-bands {
+  opacity: 0.88;
 }
 .terrain {
   position: absolute;

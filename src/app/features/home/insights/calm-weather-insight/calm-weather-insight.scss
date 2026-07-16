@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+.insight {
+  display: grid;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--surface-primary);
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+}
+.indicator {
+  width: var(--space-3);
+  height: var(--space-3);
+  margin-block-start: var(--space-1);
+  border-radius: 50%;
+  background: var(--color-positive);
+  box-shadow: 0 0 var(--space-5) color-mix(in srgb, var(--color-positive) 35%, transparent);
+}
+.eyebrow {
+  margin: 0 0 var(--space-1);
+  color: var(--color-positive);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+.evidence {
+  font-size: 0.78rem;
+}
