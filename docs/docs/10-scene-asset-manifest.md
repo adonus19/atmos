@@ -59,6 +59,8 @@ Production location: `public/assets/scenes/home/`
 
 Responsive derivatives may use 1024- and 1536-pixel widths. Do not upscale a smaller generated source and call it high definition.
 
+Cloud layers may begin as neutral-grayscale luminance sources on black and use screen blending during compositor development. Alpha conversion and validation remain required before final ATM-107 acceptance; black-field delivery is not mislabeled as native transparency.
+
 ## 5. Scientific and visual constraints
 
 - Generated assets are synthetic environmental artwork, not live imagery of York, South Carolina.
@@ -167,3 +169,19 @@ Final prompt:
 Final prompt:
 
 > Create a registration-perfect 16:9 emission mask aligned to the night geometry reference. Output a pure solid black field everywhere except for sparse, tiny, softly glowing warm-white light points suggesting a few distant homes and a very small valley settlement. Place lights only on plausible distant valley-floor and lower-slope locations in the middle-distance terrain, following the reference perspective. Keep the mountain skyline, foreground, and entire sky completely black. Use very few lights at varied sizes with lower intensity at distance; no road lines or dense urban grid. No terrain, trees, sky color, clouds, stars, moon, buildings, UI, text, logo, watermark, precipitation, lightning, lens flare, bloom clouds, new scenery, large dots, decorative bokeh, neon colors, or excessive brightness.
+
+### High cirrus luminance layer — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `photorealistic-natural`
+- **Source:** `public/assets/scenes/home/clouds/high-cirrus-luminance-source.png`
+- **Delivery derivative:** `public/assets/scenes/home/clouds/high-cirrus-luminance.webp`
+- **Native dimensions:** 1672×941
+- **Transfer size:** approximately 45 KB for the WebP derivative
+- **Intended composition:** low-opacity screen blend pending final alpha conversion
+- **Status:** production candidate pending drift, edge and in-app visual acceptance
+
+Final prompt:
+
+> Create a registration-neutral 16:9 cloud luminance mask on a pure solid black field. Show only sparse, thin, high-altitude cirrus filaments: delicate ice-crystal streaks, long feathered wisps, subtle natural variation, and broad open gaps. Render the cirrus in dim-to-medium neutral grayscale so brightness can become opacity during local alpha conversion. Cloud texture occupies mainly the upper 65% with generous empty space; edges taper smoothly to pure black; no horizon, landscape, perspective landmark, or directional sun lighting. It must drift horizontally without an obvious central subject. No blue sky, terrain, trees, fog bank, cumulus, altocumulus, storm cloud, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, halos, blockiness, blur smear, painterly marks, or noise banding.
