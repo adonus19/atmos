@@ -45,9 +45,13 @@ describe('Atmos app shell', () => {
     cy.get('[data-cy="atmospheric-scene"]')
       .should('have.attr', 'aria-label')
       .and('contain', 'light precipitation');
+    cy.get('[data-cy="atmospheric-scene"]').should('have.attr', 'data-solar-phase', 'night');
     cy.get('[data-layer="environment"]')
       .should('have.attr', 'src')
       .and('contain', '/assets/scenes/home/environment/calm-night.webp');
+    cy.get('[data-layer="city-lights"]')
+      .should('have.attr', 'style')
+      .and('contain', 'opacity: 0.68');
     cy.get('[data-cy="atmospheric-interpretation"]')
       .should('contain', 'Storms developing')
       .and('contain', 'Jul 16, 12:00 AM EDT');

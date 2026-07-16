@@ -147,7 +147,8 @@ app-precipitation-layer {
 @media (prefers-reduced-motion: reduce) {
   .city-lights-layer,
   .cloud-texture-layer,
-  .fog-layer {
+  .fog-layer,
+  .haze {
     transition-duration: 0.01ms;
   }
 }

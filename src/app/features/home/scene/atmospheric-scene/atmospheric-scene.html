@@ -6,6 +6,7 @@
     [attr.aria-label]="scene.summary"
     data-cy="atmospheric-scene"
     [attr.data-activity]="scene.activity"
+    [attr.data-solar-phase]="scene.solarPhase"
     [class.asset-fallback]="assetFallback()"
   >
     <app-sky-layer [phase]="scene.solarPhase" />

@@ -230,7 +230,7 @@ Acceptance criteria:
 
 - [x] ATM-106 define production scene asset manifest
 - [x] ATM-107 create and optimize environmental assets
-- [ ] ATM-108 build hybrid scene compositor
+- [x] ATM-108 build hybrid scene compositor
 - [ ] ATM-109 implement calm dawn/day, dusk and night variants
 - [ ] ATM-110 visual, accessibility and performance acceptance
 
@@ -259,7 +259,7 @@ Acceptance criteria:
 
 #### ATM-108 Build hybrid scene compositor
 
-**Implementation complete; CI verification pending:** July 16, 2026. TDD covers asset selection, selected-state switching, quality-tier layer caps and image-error fallback. The Angular raster stack composes environment, cloud, fog, city-light and foreground layers behind code-driven wind and precipitation while preserving the synchronized accessible summary. Local Cypress is blocked because its signed Electron executable starts in Node mode and rejects Cypress launch flags after a clean reinstall; equivalent browser assertions are committed for GitHub Actions validation.
+**Completed:** July 16, 2026. TDD covers asset selection, selected-state switching, quality-tier layer caps and image-error fallback. The Angular raster stack composes environment, cloud, fog, city-light and foreground layers behind code-driven wind and precipitation while preserving the synchronized accessible summary. GitHub Actions quality and Cypress jobs passed on merged `main` in run 29516599722.
 
 Acceptance criteria:
 
@@ -270,6 +270,8 @@ Acceptance criteria:
 - non-visual summary remains synchronized
 
 #### ATM-109 Implement time-of-day variants
+
+**Implementation complete; CI verification pending:** July 16, 2026. Dawn/day, dusk and night now have explicit phase contracts on one stable scene frame. TDD verifies matched environment plates, registered geometry and dusk/night city-light gating; cloud, fog, haze and light opacity changes use restrained transitions that become effectively static under reduced motion. Cypress verifies the synchronized night state on the selected timeline snapshot.
 
 Acceptance criteria:
 
