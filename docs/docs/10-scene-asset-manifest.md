@@ -59,7 +59,7 @@ Production location: `public/assets/scenes/home/`
 
 Responsive derivatives may use 1024- and 1536-pixel widths. Do not upscale a smaller generated source and call it high definition.
 
-Cloud layers may begin as neutral-grayscale luminance sources on black and use screen blending during compositor development. Alpha conversion and validation remain required before final ATM-107 acceptance; black-field delivery is not mislabeled as native transparency.
+Cloud layers begin as neutral-grayscale luminance sources on black. Their brightness is deterministically converted to a white texture with an alpha channel; values at or below 2% are clamped to transparent to remove black-field residue. The luminance sources remain as reproducible working assets and are not mislabeled as native transparency.
 
 ## 5. Scientific and visual constraints
 
@@ -87,6 +87,14 @@ Cloud layers may begin as neutral-grayscale luminance sources on black and use s
 - Measure decoded memory, transfer size and frame stability on representative mobile hardware.
 - Record final generation prompts and source filenames in this document or adjacent asset metadata.
 
+### Delivery conversion record
+
+- **Tools:** ImageMagick 7.1.2 and libavif 1.4.2
+- **Alpha conversion:** grayscale luminance, 2% black-point clamp, white color plane, copied opacity
+- **Alpha validation:** all five alpha PNG masters report `GrayscaleAlpha`, alpha minimum 0, nonzero alpha maximum, and a fully transparent top-left corner
+- **WebP:** quality 68, alpha quality 68; all cloud/fog delivery files are below the 180 KB initial budget
+- **AVIF:** color quality 58, alpha quality 88 for cloud/fog layers; all delivery files are below their initial budgets
+
 ## 8. Generation record
 
 ### Calm dawn environment plate — candidate 1
@@ -95,11 +103,11 @@ Cloud layers may begin as neutral-grayscale luminance sources on black and use s
 - **Tool:** built-in OpenAI image generation
 - **Use case:** `photorealistic-natural`
 - **Source:** `public/assets/scenes/home/environment/calm-dawn-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/environment/calm-dawn.webp`
+- **Delivery derivatives:** `public/assets/scenes/home/environment/calm-dawn.webp` and `calm-dawn.avif`
 - **Native dimensions:** 1672×941 (preserved; not upscaled)
 - **Transfer size:** approximately 94 KB for the WebP derivative
 - **Status:** production candidate pending in-app visual acceptance
-- **Known gap:** the generated master is below the 2048×1152 target and the local toolchain does not yet provide an AVIF encoder. A 2048-wide master and AVIF derivative remain required before ATM-107 can close.
+- **Known gap:** the generated master is below the 2048×1152 target. The native 1672×941 candidate is not upscaled; product acceptance or a new 2048-wide master is required before ATM-107 can close.
 
 Final prompt:
 
@@ -112,7 +120,7 @@ Final prompt:
 - **Use case:** `lighting-weather`
 - **Edit target:** `public/assets/scenes/home/environment/calm-dawn-source.png`
 - **Source:** `public/assets/scenes/home/environment/calm-dusk-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/environment/calm-dusk.webp`
+- **Delivery derivatives:** `public/assets/scenes/home/environment/calm-dusk.webp` and `calm-dusk.avif`
 - **Native dimensions:** 1672×941 (preserved; not upscaled)
 - **Transfer size:** approximately 54 KB for the WebP derivative
 - **Status:** production candidate pending crossfade and in-app visual acceptance
@@ -128,7 +136,7 @@ Final prompt:
 - **Use case:** `lighting-weather`
 - **Edit target:** `public/assets/scenes/home/environment/calm-dusk-source.png`
 - **Source:** `public/assets/scenes/home/environment/calm-night-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/environment/calm-night.webp`
+- **Delivery derivatives:** `public/assets/scenes/home/environment/calm-night.webp` and `calm-night.avif`
 - **Native dimensions:** 1672×941 (preserved; not upscaled)
 - **Transfer size:** approximately 42 KB for the WebP derivative
 - **Status:** production candidate pending crossfade and in-app visual acceptance; stars and city lights intentionally remain separate layers
@@ -144,7 +152,7 @@ Final prompt:
 - **Use case:** `lighting-weather`
 - **Edit target:** `public/assets/scenes/home/environment/calm-dawn-source.png`
 - **Source:** `public/assets/scenes/home/environment/active-overcast-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/environment/active-overcast.webp`
+- **Delivery derivatives:** `public/assets/scenes/home/environment/active-overcast.webp` and `active-overcast.avif`
 - **Native dimensions:** 1672×941 (preserved; not upscaled)
 - **Transfer size:** approximately 67 KB for the WebP derivative
 - **Status:** production candidate pending crossfade and in-app visual acceptance; detailed clouds intentionally remain separate layers
@@ -176,10 +184,11 @@ Final prompt:
 - **Tool:** built-in OpenAI image generation
 - **Use case:** `photorealistic-natural`
 - **Source:** `public/assets/scenes/home/clouds/high-cirrus-luminance-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/clouds/high-cirrus-luminance.webp`
+- **Alpha master:** `public/assets/scenes/home/clouds/high-cirrus-alpha.png`
+- **Delivery derivatives:** `public/assets/scenes/home/clouds/high-cirrus.webp` and `high-cirrus.avif`
 - **Native dimensions:** 1672×941
 - **Transfer size:** approximately 45 KB for the WebP derivative
-- **Intended composition:** low-opacity screen blend pending final alpha conversion
+- **Intended composition:** low-opacity cloud layer with code-driven color and drift
 - **Status:** production candidate pending drift, edge and in-app visual acceptance
 
 Final prompt:
@@ -192,10 +201,11 @@ Final prompt:
 - **Tool:** built-in OpenAI image generation
 - **Use case:** `photorealistic-natural`
 - **Source:** `public/assets/scenes/home/clouds/middle-altocumulus-luminance-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/clouds/middle-altocumulus-luminance.webp`
+- **Alpha master:** `public/assets/scenes/home/clouds/middle-altocumulus-alpha.png`
+- **Delivery derivatives:** `public/assets/scenes/home/clouds/middle-altocumulus.webp` and `middle-altocumulus.avif`
 - **Native dimensions:** 1672×941
 - **Transfer size:** approximately 59 KB for the WebP derivative
-- **Intended composition:** screen blend pending final alpha conversion
+- **Intended composition:** middle cloud layer with code-driven color, opacity and drift
 - **Status:** production candidate pending drift, edge and in-app visual acceptance
 
 Final prompt:
@@ -208,10 +218,11 @@ Final prompt:
 - **Tool:** built-in OpenAI image generation
 - **Use case:** `photorealistic-natural`
 - **Source:** `public/assets/scenes/home/clouds/low-scattered-cumulus-luminance-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/clouds/low-scattered-cumulus-luminance.webp`
+- **Alpha master:** `public/assets/scenes/home/clouds/low-scattered-cumulus-alpha.png`
+- **Delivery derivatives:** `public/assets/scenes/home/clouds/low-scattered-cumulus.webp` and `low-scattered-cumulus.avif`
 - **Native dimensions:** 1672×941
 - **Transfer size:** approximately 23 KB for the WebP derivative
-- **Intended composition:** screen blend pending final alpha conversion
+- **Intended composition:** low cloud layer with code-driven color, opacity and drift
 - **Status:** production candidate pending drift, edge and in-app visual acceptance
 
 Final prompt:
@@ -224,12 +235,30 @@ Final prompt:
 - **Tool:** built-in OpenAI image generation
 - **Use case:** `photorealistic-natural`
 - **Source:** `public/assets/scenes/home/clouds/low-developing-overcast-luminance-source.png`
-- **Delivery derivative:** `public/assets/scenes/home/clouds/low-developing-overcast-luminance.webp`
+- **Alpha master:** `public/assets/scenes/home/clouds/low-developing-overcast-alpha.png`
+- **Delivery derivatives:** `public/assets/scenes/home/clouds/low-developing-overcast.webp` and `low-developing-overcast.avif`
 - **Native dimensions:** 1672×941
 - **Transfer size:** approximately 55 KB for the WebP derivative
-- **Intended composition:** screen blend pending final alpha conversion; color and density remain code-driven
+- **Intended composition:** low overcast layer; color, density and drift remain code-driven
 - **Status:** production candidate pending drift, edge and in-app visual acceptance
 
 Final prompt:
 
 > Create a registration-neutral 16:9 cloud luminance mask on a pure solid black field. Show a broad, low, developing overcast deck with layered turbulent texture: dense stratocumulus masses, uneven rolling bases, embedded darker cavities represented by lower luminance, subtle billowing development, and only a few narrow irregular breaks. Render the cloud structure in neutral grayscale so luminance can become opacity during local alpha conversion. Cover roughly 75% of the frame from the upper edge through the lower-middle sky, with a naturally ragged lower boundary and tapered side edges. Preserve some black gaps for transition states. No blue sky, horizon, terrain, trees, valley fog, wispy cirrus, isolated fair-weather cumulus, anvil, shelf cloud, wall cloud, funnel, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, halos, repeated tile pattern, blockiness, painterly marks, or noise banding.
+
+### Valley-fog luminance layer — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `photorealistic-natural`
+- **Source:** `public/assets/scenes/home/fog/valley-fog-luminance-source.png`
+- **Alpha master:** `public/assets/scenes/home/fog/valley-fog-alpha.png`
+- **Delivery derivatives:** `public/assets/scenes/home/fog/valley-fog.webp` and `valley-fog.avif`
+- **Native dimensions:** 1672×941
+- **Transfer size:** approximately 17 KB for the WebP derivative
+- **Intended composition:** low-opacity fog layer with code-driven color and drift
+- **Status:** production candidate pending drift, edge and in-app visual acceptance
+
+Final prompt:
+
+> Create a registration-neutral 16:9 atmospheric fog luminance mask on a pure solid black field. Show low, shallow valley fog and layered ground-hugging haze: long soft horizontal ribbons, translucent-looking billows, delicate feathered edges, uneven density, and broad gaps. Render the fog in dim-to-medium neutral grayscale so luminance can become opacity during local alpha conversion. Restrict nearly all fog to the lower 38% of the frame, with the strongest subtle bands near the lower-middle and a clean black upper 55%. Let a few ribbons exit the left and right edges for restrained horizontal drift. No sky color, horizon line, terrain, trees, cloud deck, cumulus, smoke plume, precipitation, lightning, sun, moon, stars, city lights, UI, text, logo, watermark, frame, hard cutout edges, bright white wall, repeated waves, blockiness, painterly marks, or noise banding.
