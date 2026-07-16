@@ -134,3 +134,19 @@ Final prompt:
 Final prompt:
 
 > Change only the time-of-day lighting from calm dusk to a clear calm night. Preserve the exact camera position, crop, mountain ridgelines, valley geometry, foreground trees, forest detail, mist placement, and 16:9 composition pixel-consistently so this plate can crossfade with the dawn and dusk plates without any spatial jump. Use natural deep navy and muted indigo ambient moonless-night illumination, readable but genuinely dark terrain layers, and subtle cool atmospheric depth. Keep the upper sky open for separately rendered stars and weather. No sun, sunset afterglow, clouds, stars, moon, city lights, artificial lights, UI, text, logo, watermark, wind marks, precipitation, lightning, buildings, new objects, stylization, blur, blockiness, painterly texture, artificial HDR, or excessive blue saturation.
+
+### Active-development overcast environment plate — candidate 1
+
+- **Generated:** July 16, 2026
+- **Tool:** built-in OpenAI image generation
+- **Use case:** `lighting-weather`
+- **Edit target:** `public/assets/scenes/home/environment/calm-dawn-source.png`
+- **Source:** `public/assets/scenes/home/environment/active-overcast-source.png`
+- **Delivery derivative:** `public/assets/scenes/home/environment/active-overcast.webp`
+- **Native dimensions:** 1672×941 (preserved; not upscaled)
+- **Transfer size:** approximately 67 KB for the WebP derivative
+- **Status:** production candidate pending crossfade and in-app visual acceptance; detailed clouds intentionally remain separate layers
+
+Final prompt:
+
+> Change only the environmental illumination from calm dawn to a daytime pre-storm, active-development overcast state. Preserve the exact camera position, crop, mountain ridgelines, valley geometry, foreground trees, forest detail, mist placement, and 16:9 composition pixel-consistently so this plate can crossfade with the calm plates without any spatial jump. Use diffuse cool-gray daylight, muted green forest, lowered contrast in distant ridges, and slightly denser-looking atmospheric depth. Remove the visible sun and warm sunrise rays. Keep the upper sky as a clean, subdued slate-gray illumination field for separately rendered cloud layers. No clouds, city lights, stars, moon, artificial lights, UI, text, logo, watermark, wind marks, precipitation, lightning, buildings, new objects, stylization, blur, blockiness, painterly texture, artificial HDR, green cast, or dramatic storm funnel.
